@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: springboot
+groq:
+  url: https://api.groq.com/openai/v1/chat/completions
+  clientSecret: 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
+  
