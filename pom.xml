@@ -11,7 +11,7 @@
 	<groupId>com.groq</groupId>
 	<artifactId>profAI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>profAI</name>
 	<description>Web Security configs</description>
 	<url/>
