@@ -3,7 +3,13 @@ server:
 
 spring:
   application:
-    name: springboot
+    name: profAI
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
 groq:
   url: https://api.groq.com/openai/v1/chat/completions
   clientSecret: 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
