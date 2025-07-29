@@ -9,21 +9,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.project.config.CustomException;
 import com.springboot.project.service.ProfAIService;
+import com.springboot.project.vo.ChatRequestVO;
+import com.springboot.project.vo.ChatResponseVO;
 
 @RestController
-public class profAiController {
+public class ProfAiController {
 
 	@Autowired
 	ProfAIService profAIService;
 
 	@PostMapping(value = "/generate/prompt")
-	public ResponseEntity<String> generatePrompt(@RequestBody String input) throws CustomException {
-		return new ResponseEntity<>(profAIService.getPrompt(input), HttpStatus.OK);
+	public ResponseEntity<ChatResponseVO> generatePrompt(@RequestBody ChatRequestVO requestVO) throws CustomException {
+		return new ResponseEntity<>(new ChatResponseVO(profAIService.getPrompt(requestVO.getInput())), HttpStatus.OK);
 	}
-	
+
 	@PostMapping(value = "/generate/response")
-	public ResponseEntity<String> generateResponse(@RequestBody String input) throws CustomException {
-		return new ResponseEntity<>(profAIService.getResponse(input), HttpStatus.OK);
+	public ResponseEntity<ChatResponseVO> generateResponse(@RequestBody ChatRequestVO requestVO)
+			throws CustomException {
+		return new ResponseEntity<>(new ChatResponseVO(profAIService.getResponse(requestVO.getInput())), HttpStatus.OK);
 	}
 
 }
