@@ -54,8 +54,10 @@ public class ProfAIService {
 			JsonNode response = webclient.post().uri(url).bodyValue(request).headers(headers -> {
 				headers.setBearerAuth(clientSecret);
 			}).retrieve().bodyToMono(JsonNode.class).block();
-			if (response.has("choices") && response.has("message") && response.has("content")) {
-				return response.get("choices").get("message").get("content").asText();
+			if (response.has("choices") && !response.get("choices").isEmpty()
+					&& response.get("choices").get(0).has("message")
+					&& response.get("choices").get(0).get("message").has("content")) {
+				return response.get("choices").get(0).get("message").get("content").asText();
 			} else {
 				return "Oops something didn't work..";
 			}
