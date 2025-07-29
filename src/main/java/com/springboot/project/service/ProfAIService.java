@@ -83,7 +83,7 @@ public class ProfAIService {
 		message.put("role", "user");
 		message.put("content", input);
 		messages.add(message);
-		requestObject.set("messages", message);
+		requestObject.set("messages", messages);
 		return requestObject;
 	}
 
