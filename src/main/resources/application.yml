@@ -12,5 +12,5 @@ spring:
       on-profile: dev
 groq:
   url: https://api.groq.com/openai/v1/chat/completions
-  clientSecret: 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
+  clientSecret: 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
   
